@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Axentix CSS minified version -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.0.0/dist/css/axentix.min.css">
+        {% block stylesheets %}{% endblock %}
+<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body class="layout with-sidenav">
+     <header>
+      <nav class="navbar shadow-1 primary">
+        <a href="{{ path('blog_home') }}" class="navbar-brand">Crowding</a>
+        <div class="navbar-menu ml-auto">
+          <a class="navbar-link" href="#">Mon Profil</a>
+          <a class="navbar-link" href="#">Projets</a>
+          <a class="navbar-link" href="#">Traductions</a>
+        </div>
+      </nav>
+    </header>
+     
+    <main>
+          <button data-target="example-sidenav"
+        class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
+          Open sidenav
+      </button>
+       {% block body %}{% endblock %}
+    </main>
+
+    <footer class="footer primary">
+      Copyright © 2021
+    </footer>
+       
+    </body>
+</html>

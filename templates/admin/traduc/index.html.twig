@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les Articles{% endblock %}
+
+{% block body %}
+    <h1> Gérer les Articles</h1>
+    {#<a href="{{ path("admin_articles_ajout") }}" class="btn shadow-1 rounded-1 blue">Ajouter un article</a>#}
+    <div class="responsive-table">
+  <table class="table striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Date</th>
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for article in articles %}
+      <tr>
+        <td>{{article.id}}</td>
+        <td>{{article.title}}</td>
+        <td>{{article.createdAt|date}}</td>
+        <td>{{article.active}}
+        <label class="form-switch mt-2">
+      Off
+      <input type="checkbox" {{ (article.active) ? 'checked' :''}} data-id="{{article.id}}" />
+      <span class="slider"></span>
+      On
+    </label>
+    </td>
+        <td class="text-center">
+        {#<a href="{{ path("admin_articles_modifier", {id: article.id}) }}" class="btn shadow-1 rounded-1 blue">Modifier</a>#}
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+</div>
+{{dump(articles)}}
+{% endblock %}
